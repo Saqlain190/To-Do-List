@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'app'
+    'app',
 ]
 
 MIDDLEWARE = [
@@ -115,8 +115,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
+import os
+STATIC_URL = '/static/'
 
-STATIC_URL = 'static/'
+# Add all your static directories here
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'app', 'static'),  # Ensure this folder exists
+    # os.path.join(BASE_DIR, 'ads', 'static'),   # Ensure this folder exists
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

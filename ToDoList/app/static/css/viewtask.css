@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Tasks</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <style>
+
         /* Basic reset */
 * {
     margin: 0;
@@ -138,26 +129,3 @@ h1 {
     animation: moveCircles 20s linear infinite;
     z-index: 1;
 }
-
-    </style>
-
-    <div class="background">
-        <div class="content">
-            <div class="heading-box">
-                <h1>My Tasks</h1>
-            </div>
-
-            <div id="task-list">
-                <!-- Tasks will be dynamically added here -->
-            </div>
-
-            <div class="buttons">
-                <button class="btn" id="backBtn">Back</button>
-                <button class="btn" id="addNewTaskBtn">Add New Task</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="view-tasks.js"></script>
-</body>
-</html>
