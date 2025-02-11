@@ -1,15 +1,14 @@
 from django.http import HttpResponse
 from django.template import loader
-
-from django.shortcuts import render, redirect
 from .forms import SignupForm
-from django.contrib.auth import login, authenticate
-
 from django.contrib.auth import get_user_model
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth.decorators import login_required
+from .forms import TaskForm
+from .models import Task
 
 
 
@@ -73,21 +72,33 @@ def signin(request):
 
 
 
-def member(request):
-  template = loader.get_template('index.html')
-  return HttpResponse(template.render())
+from django.shortcuts import render
+
+def home(request):
+    return render(request, 'index.html')  # Or whatever template you use for the homepage
 
 
-# def signin(request):
-#   template = loader.get_template('signin.html')
-#   return HttpResponse(template.render())
+
+@login_required
+def add_task(request):
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)  # Prevent saving immediately
+            task.user = request.user  # Assign the logged-in user to the task
+            task.save()  # Save the task
+            messages.success(request, "Task has been saved sucessfully !") 
+    else:
+        form = TaskForm()
+    return render(request, 'addtask.html', {'form': form})
+
+def view_tasks(request):   
+    tasks = Task.objects.all()
+    return render(request, 'viewtask.html', {'tasks': tasks})
 
 
-# def addtask(request):
-#   template = loader.get_template('addtask.html')
-#   return HttpResponse(template.render())
 
 
 # def viewtask(request):
 #   template = loader.get_template('viewtask.html')
-#   return HttpResponse(template.render())
+#   return HttpResponse(template.render())html

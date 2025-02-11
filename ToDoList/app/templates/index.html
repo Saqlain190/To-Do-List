@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,17 +8,31 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 <body>
-    
     <div class="background">
+        <nav>
+        
+            <div class="nav-buttons">
+                <a href="{% url 'signin' %}" class="sign-in">Sign In</a>
+                <a href="{% url 'signup' %}" class="sign-up">Sign Up</a>
+            </div>
+        </nav>
         <div class="content">
             <!-- Rectangle Box for Heading -->
             <div class="heading-box">
                 <h1>Project To-Do List</h1>
             </div>
+
             <!-- Buttons stay centered -->
             <div class="buttons">
-                <button class="btn" id="viewTask">View Task</button> <a href="viewtask.html"></a>
-                <button class="btn" id="addTask">Add New Task</button>
+                <!-- View Task Button -->
+                <a href="{% url 'view_tasks' %}" class="btn">
+                    <button id="viewTask">View Task</button>
+                </a>
+
+                <!-- Add New Task Button -->
+                <a href="{% url 'add_task' %}" class="btn">
+                    <button id="addTask">Add New Task</button>
+                </a>
             </div>
         </div>
     </div>

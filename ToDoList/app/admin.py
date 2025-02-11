@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser
+from .models import CustomUser, Task
 
 class CustomUserAdmin(UserAdmin):
     # Display full name and email in the list view
@@ -14,3 +14,4 @@ class CustomUserAdmin(UserAdmin):
 
 # Register the CustomUser model with the customized admin
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Task)

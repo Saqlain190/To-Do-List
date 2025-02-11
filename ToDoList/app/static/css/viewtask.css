@@ -1,131 +1,125 @@
-
-        /* Basic reset */
-* {
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Set full page size */
-html, body {
-    height: 100%;
     font-family: Arial, sans-serif;
-}
-
-/* Background styling */
-.background {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #4bb5bd, #4a148c);
+    background: linear-gradient(to right, #56CCF2, #2F80ED);
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    animation: backgroundMotion 5s infinite alternate;
-}
-
-/* Content container */
-.content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Rectangle box for heading */
+.background {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: #1a202c;
+    color: white;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.nav-buttons a {
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+}
+
+.nav-buttons .sign-in {
+    border: 1px solid white;
+}
+
+.nav-buttons .sign-in:hover {
+    background-color: white;
+    color: #1a202c;
+}
+
+.nav-buttons .sign-up {
+    background-color: #3b82f6;
+}
+
+.nav-buttons .sign-up:hover {
+    background-color: #2563eb;
+}
+
+.content {
+    text-align: center;
+    margin-top: 100px;
+}
+
 .heading-box {
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
     padding: 20px 40px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    margin-bottom: 30px;
-    position: absolute;
-    top: 20px; /* Position the heading at the top */
-    left: 50%;
-    transform: translateX(-50%);
+    backdrop-filter: blur(10px);
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #fff;
-}
-
-/* Button container */
 .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    z-index: 2;
     margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
 }
 
-/* Button styles */
 .btn {
-    padding: 15px 30px;
-    font-size: 1.2rem;
+    padding: 12px 24px;
+    font-size: 1rem;
     border: none;
-    background-color: #889000;
-    color: #fff;
+    background-color: #8B8000;
+    color: white;
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.3s ease;
-    width: 150px; /* Set equal width for both buttons */
+    text-decoration: none;
 }
 
-/* Button hover effect */
 .btn:hover {
-    background-color: #e91e63;
-    transform: scale(1.1);
+    background-color: #6B6800;
 }
 
-/* Floating and moving effect for background */
-@keyframes backgroundMotion {
-    0% {
-        background-position: 0 0 0 0;
-    }
-    100% {
-        background-position: 100% 100% 100% 100%;
-    }
-}
 
-/* Moving elements in background (circles) */
-@keyframes moveCircles {
-    0% {
-        transform: translate(0, 0,0,0);
+    .task-table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        background: white;
     }
-    100% {
-        transform: translate(100px, 100px);
-        
+
+    .task-table th, .task-table td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: left;
     }
-}
 
-.background::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    animation: moveCircles 15s linear infinite;
-    z-index: 1;
-}
+    .task-table th {
+        background: #f2f2f2;
+        font-weight: bold;
+    }
 
-.background::after {
-    content: '';
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    animation: moveCircles 20s linear infinite;
-    z-index: 1;
-}
+    .task-table tr:nth-child(even) {
+        background: #f9f9f9;
+    }
+
+    .task-table tr:hover {
+        background: #ddd;
+    }
+

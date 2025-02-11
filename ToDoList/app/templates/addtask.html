@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/addtask.css' %}">
 </head>
 <body>
-    
-
     <div class="background">
         <div class="content">
             <!-- Rectangle Box for Heading -->
@@ -18,21 +16,20 @@
             </div>
 
             <!-- Task Add Form -->
-            <div class="task-form">
-                <input type="text" id="taskTitle" placeholder="Enter task title" />
-                <input type="text" id="taskInput" placeholder="Enter your task" />
-                <input type="date" id="taskDate" />
-                <input type="time" id="taskTime" />
+            <div class="task-form" >
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit" class="btn">Save Task</button>
+                </form>
             </div>
 
-            <!-- Buttons for Save and Back -->
+            <!-- Back Button -->
             <div class="buttons">
-                <button class="btn" id="saveTask">Save Task</button>
-                <button class="btn" id="backBtn">Back</button>
+                <a href="{% url 'view_tasks' %}" class="btn">Back</a>
             </div>
         </div>
     </div>
-
-    <script src="add-task.js"></script>
 </body>
 </html>
